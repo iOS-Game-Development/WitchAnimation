@@ -15,6 +15,7 @@
 		24625353252E50DD003887F1 /* WitchAnimationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24625352252E50DD003887F1 /* WitchAnimationUITests.swift */; };
 		2462536A252E5634003887F1 /* WitchImages.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 24625369252E5634003887F1 /* WitchImages.atlas */; };
 		24625372252E56ED003887F1 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24625371252E56ED003887F1 /* GameScene.swift */; };
+		246F57612532D934002900DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 246F57602532D934002900DA /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		24625354252E50DD003887F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24625369252E5634003887F1 /* WitchImages.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = WitchImages.atlas; sourceTree = "<group>"; };
 		24625371252E56ED003887F1 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		246F57602532D934002900DA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				24625339252E50DC003887F1 /* Main.storyboard */,
 				2462533C252E50DD003887F1 /* Assets.xcassets */,
 				2462533E252E50DD003887F1 /* Info.plist */,
+				246F57602532D934002900DA /* LaunchScreen.storyboard */,
 			);
 			path = WitchAnimation;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2462533B252E50DC003887F1 /* Main.storyboard in Resources */,
+				246F57612532D934002900DA /* LaunchScreen.storyboard in Resources */,
 				2462533D252E50DD003887F1 /* Assets.xcassets in Resources */,
 				2462536A252E5634003887F1 /* WitchImages.atlas in Resources */,
 			);
