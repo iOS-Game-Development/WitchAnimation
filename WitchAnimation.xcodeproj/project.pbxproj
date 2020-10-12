@@ -16,6 +16,7 @@
 		2462536A252E5634003887F1 /* WitchImages.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 24625369252E5634003887F1 /* WitchImages.atlas */; };
 		24625372252E56ED003887F1 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24625371252E56ED003887F1 /* GameScene.swift */; };
 		246F57612532D934002900DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 246F57602532D934002900DA /* LaunchScreen.storyboard */; };
+		24B4C3BC2535154A00695EA0 /* AnalogJoystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B4C3BB2535154A00695EA0 /* AnalogJoystick.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		24625369252E5634003887F1 /* WitchImages.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = WitchImages.atlas; sourceTree = "<group>"; };
 		24625371252E56ED003887F1 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		246F57602532D934002900DA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		24B4C3BB2535154A00695EA0 /* AnalogJoystick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalogJoystick.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				24625369252E5634003887F1 /* WitchImages.atlas */,
+				24B4C3BB2535154A00695EA0 /* AnalogJoystick.swift */,
 				2462532F252E50DC003887F1 /* AppDelegate.swift */,
 				24625337252E50DC003887F1 /* GameViewController.swift */,
 				24625371252E56ED003887F1 /* GameScene.swift */,
@@ -263,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24625372252E56ED003887F1 /* GameScene.swift in Sources */,
+				24B4C3BC2535154A00695EA0 /* AnalogJoystick.swift in Sources */,
 				24625338252E50DC003887F1 /* GameViewController.swift in Sources */,
 				24625330252E50DC003887F1 /* AppDelegate.swift in Sources */,
 			);

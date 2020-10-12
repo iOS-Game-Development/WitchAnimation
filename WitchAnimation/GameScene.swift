@@ -12,10 +12,17 @@ class GameScene: SKScene {
     private var witch = SKSpriteNode()
     private var witchMovingFrames : [SKTexture] = []
     
+    lazy var analogJoystick : AnalogJoystick = {
+        let js = AnalogJoystick(diameter: 100, colors: nil, images: (UIImage(named: "jSubstrate"), UIImage(named: "jStick")))
+        js.position = CGPoint(x: 90, y: 90)
+        return js
+    }()
+    
     override func didMove(to view: SKView) {
         backgroundColor = .white
         buildWitch()
         animateWitch()
+        setupJoystick()
     }
     
     func buildWitch() {
@@ -36,4 +43,13 @@ class GameScene: SKScene {
     func animateWitch() {
         witch.run(SKAction.repeatForever(SKAction.animate(with: witchMovingFrames, timePerFrame: 0.1, resize: false, restore: true)), withKey: "movingWitchInPlace")
     }
+    
+    func setupJoystick() {
+        addChild(analogJoystick)
+        analogJoystick.trackingHandler = { [unowned self] data in
+            self.witch.position = CGPoint(x: self.witch.position.x + (data.velocity.x * 0.12), y: self.witch.position.y + (data.velocity.y * 0.12))
+            
+        }
+    }
+    
 }
