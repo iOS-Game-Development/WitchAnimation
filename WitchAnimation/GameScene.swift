@@ -11,6 +11,9 @@ import SpriteKit
 class GameScene: SKScene {
     private var witch = SKSpriteNode()
     private var witchMovingFrames : [SKTexture] = []
+    private var fireButton1 = SKSpriteNode()
+    private var fireButton2 = SKSpriteNode()
+    private var fireButton3 = SKSpriteNode()
     
     lazy var analogJoystick : AnalogJoystick = {
         let js = AnalogJoystick(diameter: 100, colors: nil, images: (UIImage(named: "jSubstrate"), UIImage(named: "jStick")))
@@ -19,10 +22,11 @@ class GameScene: SKScene {
     }()
     
     override func didMove(to view: SKView) {
-        backgroundColor = .white
+        backgroundColor = .systemBlue
         buildWitch()
         animateWitch()
         setupJoystick()
+        addFireButton()
     }
     
     func buildWitch() {
@@ -52,4 +56,53 @@ class GameScene: SKScene {
         }
     }
     
+    func addFireButton() {
+        fireButton1 = SKSpriteNode(imageNamed: "button1")
+        fireButton1.name = "button1"
+        fireButton1.position = CGPoint(x: UIScreen.main.bounds.width * 4/5, y: 70)
+        self.addChild(fireButton1)
+        
+        fireButton2 = SKSpriteNode(imageNamed: "button2")
+        fireButton2.name = "button2"
+        fireButton2.position = CGPoint(x: UIScreen.main.bounds.width * 4/5 + 60, y: 70)
+        self.addChild(fireButton2)
+        
+        fireButton3 = SKSpriteNode(imageNamed: "button3")
+        fireButton3.name = "button3"
+        fireButton3.position = CGPoint(x: UIScreen.main.bounds.width * 4/5 + 120, y: 70)
+        self.addChild(fireButton3)
+        
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first
+        let location = (touch?.location(in: self))!
+        
+        for touchedNode in self.nodes(at: location) {
+            if touchedNode == fireButton1 || touchedNode == fireButton2 || touchedNode == fireButton3 {
+                fadeFireButton(button: touchedNode as! SKSpriteNode)
+                fireFireball()
+            }
+        }
+    }
+    
+    func fireFireball() {
+        let fireballNode = SKSpriteNode(imageNamed: "fireball")
+        fireballNode.position = self.witch.position
+        fireballNode.position.x += 5
+        self.addChild(fireballNode)
+        
+        let animationDuration : TimeInterval = 1
+        var actionArray = [SKAction]()
+        actionArray.append(SKAction.move(to: CGPoint(x: self.frame.size.width, y: self.witch.position.y), duration: animationDuration))
+        actionArray.append(SKAction.removeFromParent())
+        fireballNode.run(SKAction.sequence(actionArray))
+    }
+    
+    func fadeFireButton(button : SKSpriteNode) {
+        var fadeOut = SKAction.fadeAlpha(to: 0.1, duration: 0.1)
+        var fadeIn = SKAction.fadeAlpha(to: 1, duration: 0.1)
+        
+        button.run(SKAction.sequence([fadeOut, fadeIn]))
+    }
 }
