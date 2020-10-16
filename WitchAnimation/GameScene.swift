@@ -14,6 +14,8 @@ class GameScene: SKScene {
     private var fireButton1 = SKSpriteNode()
     private var fireButton2 = SKSpriteNode()
     private var fireButton3 = SKSpriteNode()
+    private var background1 : SKSpriteNode!
+    private var background2 : SKSpriteNode!
     
     lazy var analogJoystick : AnalogJoystick = {
         let js = AnalogJoystick(diameter: 100, colors: nil, images: (UIImage(named: "jSubstrate"), UIImage(named: "jStick")))
@@ -23,10 +25,15 @@ class GameScene: SKScene {
     
     override func didMove(to view: SKView) {
         backgroundColor = .systemBlue
+        buildBackground()
         buildWitch()
         animateWitch()
         setupJoystick()
         addFireButton()
+    }
+    
+    override func update(_ currentTime: TimeInterval) {
+        moveBackground()
     }
     
     func buildWitch() {
@@ -105,4 +112,35 @@ class GameScene: SKScene {
         
         button.run(SKAction.sequence([fadeOut, fadeIn]))
     }
+    
+    func buildBackground() {
+        background1 = SKSpriteNode(imageNamed: "background1")
+        background1.size = CGSize(width: self.frame.size.width, height: self.frame.size.height)
+        background1.position = CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 2)
+        background1.zPosition = -1000
+        background1.name = "background1"
+        addChild(background1)
+        
+        background2 = SKSpriteNode(imageNamed: "background2")
+        background2.size = CGSize(width: self.frame.size.width, height: self.frame.size.height)
+        background2.position = CGPoint(x: (self.frame.size.width / 2) + background1.size.width, y: self.frame.size.height / 2)
+        background2.zPosition = -1000
+        background2.name = "background2"
+        addChild(background2)
+
+    }
+    
+    func moveBackground() {
+        background1.position = CGPoint(x: background1.position.x - 2, y: background1.position.y)
+        background2.position = CGPoint(x: background2.position.x - 2, y: background2.position.y)
+
+        
+        if (background1.position.x <= -(background1.size.width / 2)) {
+            background1.position = CGPoint(x: (self.frame.size.width / 2) + background2.size.width, y: background1.position.y)
+        }
+        if (background2.position.x <= -(background2.size.width / 2)) {
+            background2.position = CGPoint(x: (self.frame.size.width / 2) + background1.size.width, y: background2.position.y)
+        }
+    }
+    
 }
